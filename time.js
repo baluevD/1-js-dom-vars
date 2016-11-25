@@ -1,6 +1,6 @@
 'use strict';
 
-function  initializeClock(objectDate,arr) {
+function  initializeClock(objectDate, arr) {
     var dateFromArr = '';
     if (Array.isArray(objectDate)){
         arr = objectDate;
@@ -8,10 +8,10 @@ function  initializeClock(objectDate,arr) {
     if(!(objectDate instanceof Date)) {
         objectDate = new Date();
     }
-    if(arr===undefined||arr.length==0) {
+    if( typeof(arr)=='undefined' || arr.length == 0) {
         arr = ['hour', 'minute', 'second'];
     }
-    for(var i=0; i<arr.length;i++) {
+    for(var i = 0; i < arr.length; i++) {
         if (i == 0) {
             var moreVal = "";
         }
@@ -20,25 +20,25 @@ function  initializeClock(objectDate,arr) {
         }
         switch (arr[i]) {
             case 'year':
-                dateFromArr+= moreVal + objectDate.getFullYear();
+                dateFromArr += moreVal + objectDate.getFullYear();
                 break;
             case 'month':
-                dateFromArr+= moreVal + objectDate.getMonth();
+                dateFromArr += moreVal + objectDate.getMonth();
                 break;
             case 'day':
-                dateFromArr+= moreVal + objectDate.getDay();
+                dateFromArr += moreVal + objectDate.getDay();
                 break;
             case 'hour':
-                dateFromArr+= moreVal + objectDate.getHours();
+                dateFromArr += moreVal + objectDate.getHours();
                 break;
             case 'minute':
-                dateFromArr+= moreVal + objectDate.getMinutes();
+                dateFromArr += moreVal + objectDate.getMinutes();
                 break;
             case 'second':
-                dateFromArr+= moreVal + objectDate.getSeconds();
+                dateFromArr += moreVal + objectDate.getSeconds();
                 break;
             case 'millisecond':
-                dateFromArr+= moreVal + objectDate.getMilliseconds();
+                dateFromArr += moreVal + objectDate.getMilliseconds();
                 break;
         }
     }
@@ -49,11 +49,11 @@ function  initializeClock(objectDate,arr) {
 // initializeClock(new Date(2014, 6, 14), ['year', 'month', 'second']);
 // initializeClock();
 
-var a = [];
+var arrForDate = [];
 
 var goStart = function(){
     var today = new Date();
-    initializeClock(today, a);
+    initializeClock(today, arrForDate);
 }
 
-setInterval(function(){goStart()}, 1000)
+setInterval(function() { goStart() }, 1000)
